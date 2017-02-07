@@ -1,108 +1,11 @@
-%% bare_conf.tex
-%% V1.3
-%% 2007/01/11
-%% by Michael Shell
-%% See:
-%% http://www.michaelshell.org/
-%% for current contact information.
-%%
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
-%%
-%% Support sites:
-%% http://www.michaelshell.org/tex/ieeetran/
-%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
-%% and
-%% http://www.ieee.org/
 
-%%*************************************************************************
-%% Legal Notice:
-%% This code is offered as-is without any warranty either expressed or
-%% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
-%% User assumes all risk.
-%% In no event shall IEEE or any contributor to this code be liable for
-%% any damages or losses, including, but not limited to, incidental,
-%% consequential, or any other damages, resulting from the use or misuse
-%% of any information contained here.
-%%
-%% All comments are the opinions of their respective authors and are not
-%% necessarily endorsed by the IEEE.
-%%
-%% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
-%% distributed and modified. A copy of the LPPL, version 1.3, is included
-%% in the base LaTeX documentation of all distributions of LaTeX released
-%% 2003/12/01 or later.
-%% Retain all contribution notices and credits.
-%% ** Modified files should be clearly indicated as such, including  **
-%% ** renaming them and changing author support contact information. **
-%%
-%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
-%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
-%%*************************************************************************
-
-% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
-% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
-% *** with production work. IEEE's font choices can trigger bugs that do  ***
-% *** not appear when using other class files.                            ***
-% The testflow support page is at:
-% http://www.michaelshell.org/tex/testflow/
-
-
-
-% Note that the a4paper option is mainly intended so that authors in
-% countries using A4 can easily print to A4 and see how their papers will
-% look in print - the typesetting of the document will not typically be
-% affected with changes in paper size (but the bottom and side margins will).
-% Use the testflow package mentioned above to verify correct handling of
-% both paper sizes by the user's LaTeX system.
-%
-% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
-% should be used if it is desired that the figures are to be displayed in
-% draft mode.
-%
 \documentclass[10pt, conference]{IEEEtran}
-% Add the compsocconf option for Computer Society conferences.
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[conference]{../sty/IEEEtran}
-
-
-
-
-
-% Some very useful LaTeX packages include:
-% (uncomment the ones you want to load)
-
-
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
-
-
-
-
 
 
 % *** CITATION PACKAGES ***
 %
-\usepackage{cite}
+%\usepackage{natbib}
+%\usepackage{cite}
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
 %$ \cite{} output to follow that of IEEE. Loading the cite package will
@@ -162,183 +65,8 @@
 % http://www.tug.org/applications/pdftex
 
 
-
-
-
-% *** MATH PACKAGES ***
-%
-%\usepackage[cmex10]{amsmath}
-% A popular package from the American Mathematical Society that provides
-% many useful and powerful commands for dealing with mathematics. If using
-% it, be sure to load this package with the cmex10 option to ensure that
-% only type 1 fonts will utilized at all point sizes. Without this option,
-% it is possible that some math symbols, particularly those within
-% footnotes, will be rendered in bitmap form which will result in a
-% document that can not be IEEE Xplore compliant!
-%
-% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
-% thus preventing page breaks from occurring within multiline equations. Use:
-%\interdisplaylinepenalty=2500
-% after loading amsmath to restore such page breaks as IEEEtran.cls normally
-% does. amsmath.sty is already installed on most LaTeX systems. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
-
-
-
-
-
-% *** SPECIALIZED LIST PACKAGES ***
-%
-%\usepackage{algorithmic}
-% algorithmic.sty was written by Peter Williams and Rogerio Brito.
-% This package provides an algorithmic environment fo describing algorithms.
-% You can use the algorithmic environment in-text or within a figure
-% environment to provide for a floating algorithm. Do NOT use the algorithm
-% floating environment provided by algorithm.sty (by the same authors) or
-% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
-% algorithm float types and packages that provide these will not provide
-% correct IEEE style captions. The latest version and documentation of
-% algorithmic.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
-% There is also a support site at:
-% http://algorithms.berlios.de/index.html
-% Also of interest may be the (relatively newer and more customizable)
-% algorithmicx.sty package by Szasz Janos:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
-
-
-
-
-% *** ALIGNMENT PACKAGES ***
-%
-%\usepackage{array}
-% Frank Mittelbach's and David Carlisle's array.sty patches and improves
-% the standard LaTeX2e array and tabular environments to provide better
-% appearance and additional user controls. As the default LaTeX2e table
-% generation code is lacking to the point of almost being broken with
-% respect to the quality of the end results, all users are strongly
-% advised to use an enhanced (at the very least that provided by array.sty)
-% set of table tools. array.sty is already installed on most systems. The
-% latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/tools/
-
-
-%\usepackage{mdwmath}
-%\usepackage{mdwtab}
-% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
-% especially mdwmath.sty and mdwtab.sty which are used to format equations
-% and tables, respectively. The MDWtools set is already installed on most
-% LaTeX systems. The lastest version and documentation is available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
-
-
-% IEEEtran contains the IEEEeqnarray family of commands that can be used to
-% generate multiline equations as well as matrices, tables, etc., of high
-% quality.
-
-
-%\usepackage{eqparbox}
-% Also of notable interest is Scott Pakin's eqparbox package for creating
-% (automatically sized) equal width boxes - aka "natural width parboxes".
-% Available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
-
-
-
-
-
-% *** SUBFIGURE PACKAGES ***
-%\usepackage[tight,footnotesize]{subfigure}
-% subfigure.sty was written by Steven Douglas Cochran. This package makes it
-% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
-% work, it is a good idea to load it with the tight package option to reduce
-% the amount of white space around the subfigures. subfigure.sty is already
-% installed on most LaTeX systems. The latest version and documentation can
-% be obtained at:
-% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
-% subfigure.sty has been superceeded by subfig.sty.
-
-
-
-%\usepackage[caption=false]{caption}
-%\usepackage[font=footnotesize]{subfig}
-% subfig.sty, also written by Steven Douglas Cochran, is the modern
-% replacement for subfigure.sty. However, subfig.sty requires and
-% automatically loads Axel Sommerfeldt's caption.sty which will override
-% IEEEtran.cls handling of captions and this will result in nonIEEE style
-% figure/table captions. To prevent this problem, be sure and preload
-% caption.sty with its "caption=false" package option. This is will preserve
-% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
-% (recommended due to many improvements over 1.2) of subfig.sty supports
-% the caption=false option directly:
-%\usepackage[caption=false,font=footnotesize]{subfig}
-%
-% The latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
-% The latest version and documentation of caption.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
-
-
-
-
-% *** FLOAT PACKAGES ***
-%
-%\usepackage{fixltx2e}
-% fixltx2e, the successor to the earlier fix2col.sty, was written by
-% Frank Mittelbach and David Carlisle. This package corrects a few problems
-% in the LaTeX2e kernel, the most notable of which is that in current
-% LaTeX2e releases, the ordering of single and double column floats is not
-% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
-% single column figure to be placed prior to an earlier double column
-% figure. The latest version and documentation can be found at:
-% http://www.ctan.org/tex-archive/macros/latex/base/
-
-
-
-%\usepackage{stfloats}
-% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
-% the ability to do double column floats at the bottom of the page as well
-% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
-% LaTeX2e). It also provides a command:
-%\fnbelowfloat
-% to enable the placement of footnotes below bottom floats (the standard
-% LaTeX2e kernel puts them above bottom floats). This is an invasive package
-% which rewrites many portions of the LaTeX2e float routines. It may not work
-% with other packages that modify the LaTeX2e float routines. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
-% Documentation is contained in the stfloats.sty comments as well as in the
-% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
-% does not allow \baselineskip to stretch. Authors submitting work to the
-% IEEE should note that IEEE rarely uses double column equations and
-% that authors should try to avoid such use. Do not be tempted to use the
-% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
-% not format its papers in such ways.
-
-
-
 \usepackage[colorinlistoftodos]{todonotes}
 
-% *** PDF, URL AND HYPERLINK PACKAGES ***
-%
-%\usepackage{url}
-% url.sty was written by Donald Arseneau. It provides better support for
-% handling and breaking URLs. url.sty is already installed on most LaTeX
-% systems. The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
-% Read the url.sty source comments for usage information. Basically,
-% \url{my_url_here}.
-
-
-
-
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
 
 
 % correct bad hyphenation here
@@ -405,20 +133,16 @@ line 4: Email: name@xyz.com}
 % make the title area
 \maketitle
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-The rising tide of Operating Systems (OS) and platforms creates a surge in demand for libraries and frameworks that assist developers in building cross-platform applications. But anyhow there is a lack of knowledge about the development process of such libraries and frameworks in Software Engineering. With the goal of contributing to the community in understanding the singularities in the development of cross-platform libraries, we conducted a case of study with Allegro, a well succeeded cross-platform library project written in C. To accomplish our goal, we extracted the changelog from Allegro's repository and data mined the commits in order to perform a quantitative analysis on data to investigate dependencies among platforms Allegro supports. We also raise the developer team profile to investigate the number of platforms that core and peripheral developers support and if there is a clear separation between mobile and desktop developer team. We found that 30\% of developers are specialized in a single platform and there is no specialized developer in the core team. Moreover, we also realized a segregation in mobile and desktop development, only about 20\% of developers work with both mobile and desktop platforms. Among other assumptions, the analysis suggests that exist a barricade between mobile and desktop development even in a cross-platform software as Allegro. Nevertheless, this study must be conducted with other cross-platforms libraries and frameworks to more consistent assumptions.   
-
-\todo[inline]{Problem: lack of knowledge about how such libraries and frameworks are developed.}
-\todo[inline]{Goal: measure the level of specialization of developers of cross-platform libs and the knowledge of developers about distinct platforms}
-
-\todo[inline]{Results}
-\todo[inline]{Impact of the results}
+As new operating systems and hardware devices emerge and become popular, developers demand libraries to help them build cross-platform applications. Nevertheless, there is a lack of knowledge about the development process of such libraries. With the goal of characterizing the development of cross-platform libraries, we analyzed the commit log of Allegro, a successful cross-platform multimedia library written in C. We found that 70\% of the developers contribute to two or more platforms, although only 20\% write code for both desktop and mobile devices. Moreover, we identified that core developers contribute to significantly more platforms and device types than peripheral developers. As future work, we plan to replicate this study in order to validate our conclusions with other cross-platforms libraries.
 
 \end{abstract}
 
 \begin{IEEEkeywords}
-component; formatting; style; styling;
+cross-platform development; software libraries; version control system.
 
 \end{IEEEkeywords}
 
@@ -440,13 +164,19 @@ component; formatting; style; styling;
 % platform is more independent => the code is very different from other platforms
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 % no \IEEEPARstart
+\todo[inline]{Continuo achando que essa primeira frase esta estranha. Veja os comentarios em https://goo.gl/PD2Mei}
 Cross-platform programming has been used to develop several libraries, toolkits, frameworks that allow developers writing multiplatform applications even though the developer is not familiarized with technical aspects about the target platform. Each platform can have a unique approach to implement a functionality or communicate with a hardware device. Hence to build a multiplatform application it’s necessary to write platform specific code to handle with the different hardware architecture and implementations of file system, graphic user interface (GUI), audio system, security [ ]. 
 
 Compiled languages require compiling for each platform it supports. Libraries such as Simple DirectMedia Layer (SDL) and Allegro have implementations for multiple platforms and allow developers to code for the library used instead of the target platforms.     
 
 In this paper we are interested to know some characteristics about cross-platform library projects. Thus we selected two cross-platform libraries to work on and we use the  information available in the repository to answer the following research questions:
+
+\todo[inline]{Pode chamar de RQ1, RQ2 e RQ3, para facilitar referenciar as questoes em outras partes do texto}
 
 \begin{itemize}
 % \item  Which platform is more independent in terms of being modified alone during maintenance tasks? \todo[inline]{Which platforms tend to change when there is a change in platform-independente code?}
@@ -455,16 +185,45 @@ In this paper we are interested to know some characteristics about cross-platfor
 \item  Which platforms are more related together considering the set of platforms a developer work with? 
 \end{itemize}
 
+\todo[inline]{Este paragrafo deveria estar no inicio.}
 Cross-platform libraries, toolkits and frameworks are in demand because of the increasing number of hardware devices and Operating Systems (OS). Companies want to make their products available for as many platforms as possible but developing a multiplatform application can be costly. Cross-platform programming is not a very explored area although there is a lot of challenges involving multiplatform applications.   
 
 The remainder of this paper is organized as follows: Section X…. 
 
 \section{Background}
 
-10 rules...
-Cross-Platform Development: Software that Lasts
+To achieve the goal of building a cross-platform application in the scenario of many device types and platforms, developers should consider three fundamental requites \cite{Levin2014}: an application should be consistent, continuous and complementary. Consistent design means that the core functionalities and structure are kept across platforms. Continuous design is when a user can start an activity in one platform and finish it in some other platform. Complementary design is that devices complement one another with a relevant functionality that only a specific device can do.     
 
+\todo[inline]{Nao entendi de que forma cross-platform aumenta a qualidade do codigo. Essa afirmacao veio de algum trabalho relacionado?}
+
+Building cross-platform raises the overall quality of code and the range of users who can take advantage of the software. A software engineering of Backblaze reported 10 rules for writing cross-platform code in C and C++ \cite{backblaze2008}:
+
+\todo[inline]{Acho que nao deve colocar essa lista aqui, porque (1) voce nao vai explicar tudo, e sem explicacao o leitor nao vai entender o que cada coisa significa e (2) nem tudo eh relevante para seu trabalho.}
+
+\begin{enumerate}
+\item Simultaneously development - Think about cross-platform from the very beginning of a project.  
+\item XML for GUI - Factor out the GUI into non reusable code and then develop a cross-platform library for the underlying logic.
+\item Use standard C types, not platform-specific types.
+\item Use only built in \#ifdef compiler flags, do not invent your own.
+\item Develop a simple set of reusable, cross-platform base libraries to hide platform-specific code
+\item Use Unicode, specifically UTF-8, for all APIs.
+\item Don’t use 3rd party application frameworks or runtime environments. 
+\item Build the raw source directly on all platforms.
+\item Require all programmers to compile on all platforms.
+\item Fire the lazy, incompetent, or bad attitude programmers who can’t follow these rules.
+\end{enumerate}
+
+Avaya's projects use fork to outsource development team. As developers generally support a few number of platforms, Avaya's development team  was divided in pure desktop and Windows team and the purely mobile teams. Consequently, it hinders fixing bugs  in all supported platforms and create redundant development effort in some cases \cite{Duc2014}.  
+
+\todo[inline]{Podia aproveitar e fazer um gancho, dizendo que neste trabalho voce vai caracterizar um projeto open source bem-sucedido quando aa atribuicao de plataformas a desenvolvedores.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
+
+\todo[inline]{Use "Table I shows..." (T maiusculo)}
 
 In order that we could establish relations among platforms and know better the developer team profile of cross-platform library projects, we selected Allegro library to conduct the study. The table \ref{allegrogeneral} shows a summary of Allegro’s general characteristics.  
 
@@ -490,11 +249,11 @@ Platforms & Windows, Linux, Mac OS X, iPhone, Android \\
 \end{tabular}
 \end{table}
 
-We extracted the commits related to modifications from Allegro's repository. The table \ref{allegroinfo} shows the release selected, some size metrics, the analysis period  and the quantity of commits extracted from Allegro's repository. 
+We extracted the commits related to modifications from Allegro's repository. The table \ref{allegroinfo} shows the release selected, some size metrics, the analysis period  and the quantity of commits extracted from Allegro's repository.  
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
-\caption{Allegro’s development information}
+\caption{Allegro’s development informationm}
 \label{allegroinfo}
 \centering
 \begin{tabular}{|c|c|c|}
@@ -509,19 +268,23 @@ Packages & 13\\
 \hline
 Functions & 2.358\\
 \hline
-Commits & 4870  \\
+Commits & 1.143  \\
 \hline
-Period & 17/05/2000 - 05/11/2016   \\
+Period & 01/12/2011 - 01/12/2016   \\
 \hline
 \end{tabular}
 \end{table}
 
+\todo[inline]{Table 2, adicionar: number of developers}
+
+Allegro's first release supported Windows, Mac OSX, and Linux. Then in August 2009 they started supporting Iphone and in December 2011 they started supporting Android. As our intention was to study all five platforms, we extracted the commits from 1st December 2011 until 1st December 2016, totalizing 1143 commits.  
+
 For the data mining and quantitative analysis we used the R, programming language and software environment for statistical computing and graphics. The study was designed as a three-part method, as illustrated in figure \ref{metodologia}: 
 
 \begin{itemize}
-\item Changelog extraction: Allegro uses Git, an open version control repository (VCS), and its changelog was freely obtained from the repository.
-\item  Data mining: The R was used to extract information about the platforms and developer team from Allegro's changelog. 
-\item Quantitative analysis: The analysis were also made in the R. For each research question a different analysis was required, as will be further explained in sections \ref{met_analysis1}.
+\item Commit log extraction: Allegro uses Git, an open version control repository (VCS), and its commit log was freely obtained from the repository.
+\item  Data mining: The R was used to extract information about the platforms and developer team from Allegro's commit log. 
+\item Quantitative analysis: The analysis were also made in the R. For each research question a different analysis was required, as will be further explained in sections \ref{met_analysis1}, \ref{met_analysis2} and \ref{met_analysis3}.
 \end{itemize}
 
 \begin{figure}[h]
@@ -533,86 +296,141 @@ For the data mining and quantitative analysis we used the R, programming languag
 
 To identify the platforms a developer works with, we listed all platform-specific code the developer has touched in the commits and it was considered that a developer supports a certain platform if the developer has made at least one modification in the platform-specific code related to this platform.
 
+\todo[inline]{Faltou explicar como voce sabe qual plataforma o commit esta tocando. Eh pela estrutura de diretorios.}
+
+Despite Allegro supports officially five platforms, as shown in table \ref{allegrogeneral}, we considered Unix as a sixth platform as Linux is based on Unix and we also discovered that many other packages are logically coupled with Unix package. Figure \ref{diagrama} shows a UML diagram of logical coupling among packages of Allegro. 
+
+\begin{figure}[h]
+\centering
+\textbf{}\includegraphics[width=2.5in]{diagrama}
+\caption{UML diagram of logical coupling among packages}
+\label{diagrama}
+\end{figure} 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Analysis: Do core developers tend to contribute with more platforms than peripheral developers?}
 \label{met_analysis1}
 
 In order to know if core developers tend to contribute with more platforms than peripheral developers, we divided the developers in core and peripheral and counted the number of platforms each developer works with. 
 
-The division was made slicing the developer team by classifying the top 20\% in the core group and the remaining in the peripheral group. Using this approach, the core group was responsible for 88,4\% of the total number of commits.
+The division was made slicing the developer team by classifying the top 20\% in the core group and the remaining in the peripheral group \cite{Robles2009}. Using this approach, the core group was responsible for 88,4\% of the total number of commits.
 
  
 
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Analysis: Is there a clear separation between mobile and desktop developers?}
+\label{met_analysis2}
+
+\todo[inline]{Essa explicacao abaixo nao ficou clara. Para cada desenvolvedor, voce contou os commits para plataformas mobile e para plataformas desktop. Do jeito que esta explicado, parece que voce pegou todos os commits e dividiu em mobile e desktop, sem considerar a divisao por desenvolvedor.}
+
+
+We divided the commits according to the device type: mobile and desktop. Therefore all the analysis were made considering Android and Iphone in mobile group and Linux, Unix, Windows and Mac OSX in desktop group. 
 
 
 
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Analysis: Which platforms are more related together considering the set of platforms a developer work with? }
+\label{met_analysis3}
 
-To know which platforms are more related together considering the set of platforms a developer work with, we organized the data by developer and listed all platforms the developer works with and then we applied an association rule algorithm to the data. The table 4 presents the support and confidence values used achieve the associations in both systems. 
-
-\begin{table}[h]
-%% increase table row spacing, adjust to taste
-\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-\caption{An Example of a Table}
-\label{table_example2}
-\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-\begin{tabular}{|c|c|c|}
-\hline
- & Allegro & SDL\\
-\hline
-Support & 0,1 & \\
-\hline
-LOC & 0,8 & \\
-\hline
-\end{tabular}
-\end{table}
+To know which platforms are more related together considering the set of platforms a developer work with, we organized the data by developer and listed all platforms the developer works with and then we applied the Apriori algorithm for mining frequent set of platforms.
 
 
 
+The Apriori algorithm is a widely used association rule algorithm and its principle is that "if an itemset is frequent, then all of its subsets must also be frequent".
+\todo[inline]{Esse principio tem a ver com o funcionamento do algoritmo, que nao eh tao relevante para este paper.}
+Using Apriori we intended to verify how many times Windows and Mac OSX packages were modified in the same commit, for example. 
+\todo[inline]{O Apriori faz um pouco mais que isso, pois ele enxerga relacionamentos assimetricos.}
+
+Two important parameters of Apriori are support and confidence. Support represents how often a rule occurs in a given dataset, while confidence determines how frequently two subset appear together in a transaction. We used a trial and error method to find the most suitable values for support and confidence and we determined support=0,3 and confidence=0,8.     
+
+\todo[inline]{Quem nao conhece o Apriori nao vai entender. Precisa mostrar exemplos de rules.}
+
+\todo[inline]{``Trial and error method'' nao soa muito cientifico...}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
-In this section we present the results obtained in the case of study about characterization of the development of Allegro cross-platform library.
+In this section we present the results obtained in the case study about characterization of the development of cross-platform libraries. 
+
+As a preprocessing step, with the aim of verifying the modularity and communication among packages of Allegro, we built a UML diagram of logical coupling among packages, shown in figure \ref{diagrama}, and we counted how many packages were modified in each commit. The table  \ref{packagegeneral} presents amount of packages modified in each commit. 
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
-\caption{An Example of a Table}
-\label{table_example2}
+\caption{Number of packages modified in a commit}
+\label{packagegeneral}
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
  Package & Commit & \%\\
 \hline
-1&		4092&	84.0\\
-2&		410&	8.4\\
-3&		164& 	3.4\\
-4&		81&		1.7\\
-5&		33&		0.7\\
-6&		26&		0.5\\
-7&		22&		0.5\\
-8&		16&		0.3\\
-9&		9&		0.2\\
->=10&	17&		0.3\\
+1&		964&	84,3\\
+2&		98&		8,6\\
+3&		46& 	4,9\\
+4&		14&		1,2\\
+5&		9&		0,8\\
+6&		7&		0,6\\
+7&		3&		0,3\\
+8&		2&		0,2\\
 
 \hline
 \end{tabular}
 \end{table}
 
+We found that 84,3\% of commits touches only one package, it suggests that Allegro is a well modularized system. 
+
+The diagram of logical coupling shows some unexpected relationship among packages:
+
+\begin{itemize}
+\item Mac OSX package doesn't communicate with any other package.
+\item  Android package is accessed by Allegro package.
+\end{itemize}
+
+\todo[inline]{A meu ver essa analise de pacotes esta deslocada. Voce esta respondendo a uma pergunta que voce nao fez na introducao e metodologia. Alem disso, por que reportar resultados de pacotes se voce esta estudando plataformas? Voce pode reportar essa analise com plataformas, mas nesse caso deveria colocar isso como questao de pesquisa.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Results: Do core developers tend to contribute with more platforms than peripheral developers?}
+
+The figure \ref{DeveloperSpecialization} shows how many platforms a developer supports, in general. In figure \ref{DeveloperSpecialization} we can see that see that about 50\% support more than one platform. 
+
+\todo[inline]{Na figura 3 nao da pra ver essa informacao sobre 50\% diretamente, a nao ser que o leitor some todas as contagens do histograma.}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.5in]{DeveloperSpecialization}
+\caption{Developer specialization}
+\label{DeveloperSpecialization}
+\end{figure}
+
+Dividing the developers in core and peripheral team, we set the core team with 4 developers and the peripheral team with 17 developers. The core team was responsible for 97,4\% of the total number of commits. This information can be seen in table \ref{devgrouping}.  
+
+\todo[inline]{La em cima voce falou em 88,4\%.}
+\todo[inline]{Use . como separador decimal.}
+\todo[inline]{Nao precisa de uma tabela com a mesma informacao deste paragrafo, sendo que essa informacao nao eh o seu resultado, eh apenas uma contextualizacao.}
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.3}
+\caption{Developer grouping}
+\label{devgrouping}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+  & Team size   & Commits (\%) \\
+\hline
+Core & 4& 97,4 \\
+\hline
+Peripheral & 17 & 2,6\\
+\hline
+\end{tabular}
+\end{table} 
+
+Our investigation shows that all core developers work with all six platforms and that peripheral developers tend to be specialized in a single platform, as 47,1\% of them work with one platform only. We also found that 11,47\% of peripheral developers support just the platform-independent code. The table \ref{plat} presents all information about the number of platform core and peripheral developer support.    
+
+\todo[inline]{Eh a primeira vez que voce fala sobre platform-independent code; isso nao foi explicado antes.}
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -623,128 +441,133 @@ In this section we present the results obtained in the case of study about chara
 \hline
 Number of platform & Core (\%) & Peripheral(\%)\\
 \hline
-1 & -&38,5 \\
+0 & 	- & 	11,47 \\
 \hline
-2 & -&15,4\\
+1 & 	- & 	47,1 \\
 \hline
-3 &- &26,9\\
+2 & 	-& 		17,6\\
 \hline
-4 & 28,6&7,7\\
+3 &		- &		5,9\\
 \hline
-5 & 14,3&11,5  \\
+4 & 	- & 	11,8\\
 \hline
-6 & 57,1& -  \\
+5 & 	- & 	5,9  \\
+\hline
+6 & 	100 & 	-  \\
 \hline
 \end{tabular}
 \end{table} 
 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Results: Is there a clear separation between mobile and desktop developers?}
 
+The table \ref{devicetype} shows the device type specialization of core and peripheral developers. The results show that there is no separation between mobile and desktop developers in team core team, as all of them support both device types. But in peripheral team, we can see a small segregation although 41,18\% of the team support both platforms.       
+
+\todo[inline]{O caption da Tabela VI deveria permitir ao leitor entender a tabela sem ler o texto fora da tabela. Em particular, deveria explicar o que sao as porcentagens.}
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.3}
+\caption{Device type specialization}
+\label{devicetype}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+ Device type & Core (\%) & Peripheral (\%) \\
+\hline
+None & 			- & 		11,8   \\
+\hline
+Desktop & 		- & 		29,4  \\
+\hline
+Mobile & 		- & 		17,4 \\
+\hline
+Desktop and Mobile & 100 & 41,18  \\
+\hline
+
+\end{tabular}
+\end{table} 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Results: Which platforms are more related together considering the set of platforms a developer work with? }
 
+We verified how many packages are touched in a commit for each platform, the results are shown in figure \ref{packagesbyplatform}. The figure \ref{packagesbyplatform} can be interpreted as: when a platform package is touched in a maintenance task, how many packages are also modified? Except Unix that have the median equals to two, all other five platforms have the minimum and median equals to 1, with special attention to Mac OSX that also have maximum equal to 1.  
 
-\begin{figure}[!t]
+\todo[inline]{1 nao eh o maximo do Mac OS X, eh o seu terceiro quartil.}
+\todo[inline]{Mais uma vez aparece o numero de pacotes em uma analise, resquicio de analises anteriores, mas que nao cabe na proposta deste artigo. Se fosse plataforma vs plataforma, melhor.}
+
+\begin{figure}[h]
 \centering
-\includegraphics[width=2.5in]{DeveloperSpecialization}
-\caption{Simulation Results}
-\label{fig_sim}
+\includegraphics[width=3.0
+in]{packagesbyplatform}
+\caption{Number of packages touched in a commit for each platform}
+\label{packagesbyplatform}
 \end{figure}
 
-\begin{figure}[!t]
+The Apriori association rule results can be seen in table \ref{assocrule}. The most frequent rule found was the rule 1, that says that when a developer works with Iphone, the developer also works with Windows with a confidence of 0,89. The rule 1 was true for 8 out of 21 transactions.
+The rule 2, 3 and 4 was found in 7 out of 21  transactions with a confidence of 1,00. The rule 5 was found in 7 out of 21 transactions with a confidence of 0,88. 
+
+\todo[inline]{Transactions sao um termo de association rule? Melhor falar de commits.}
+
+\todo[inline]{Quando voce diz out of 21, voce nao quer dizer que o total sao 21 commits, certo?}
+
+\todo[inline]{Vale a pena comentar que essa associacao entre iPhone e Windows eh contra-intuitiva.}
+
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.3}
+\caption{Apriori association rule}
+\label{assocrule}
 \centering
-\includegraphics[width=2.5in]{packagesbyplatform}
-\caption{Simulation Results}
-\label{fig_sim}
-\end{figure}
+\begin{tabular}{|c|c c c|c|c|}
+\hline
+ Rule	&LHS & &RHS	& Support & Confidence \\
+\hline
+1&	\{Iphone\} 			&$\Rightarrow$	& 	\{Windows\} 	& 	0,3809524	&  	0,89	\\
+\hline
+2&	\{Linux\} 			& $\Rightarrow$ & 	\{android\} 	& 	0,3333333	&  	1,00 	\\
+\hline
+3&	\{Iphone,Macosx\}	&$\Rightarrow$	& 	\{Windows\} 	& 	0,3333333	& 	1,00	\\
+\hline
+4&	\{Windows,Macosx\} &$\Rightarrow$&  	\{Iphone\} 	& 	0,3333333	& 	1,00	\\
+\hline
+5&	\{Windows,Iphone\} &$\Rightarrow$& 		\{Macosx\} 	& 	0,3333333	&  	0,88	\\
+\hline
+\end{tabular}
+\end{table} 
 
 
 
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
 
 
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command, the
-% \label for the overall figure must come after \caption.
-% \hfil must be used as a separator to get equal spacing.
-% The subfigure.sty package works much the same way, except \subfigure is
-% used instead of \subfloat.
-%
-%\begin{figure*}[!t]
-%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
-%\label{fig_second_case}}}
-%\caption{Simulation results}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-
-
-% An example of a floating table. Note that, for IEEE style tables, the 
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 The conclusion goes here. this is more of the conclusion
+
+\todo[inline]{Acho que vale a pena mencionar brevemente as ameacas aa validade aqui na conclusao.}
+
+
+%\cite{Robles2009} % Core peripheral developer
+%\cite{backblaze2008} % ten rules
+%\cite{Levin2014} %Book
+%\cite{Duc2014} ¨% Forking and Coordination
+
+\cite{bishop2006} % software that lasts
+\cite{Wojtczyk2008} % A Cross Platform Development Workflow for C/C++ Applications
+\cite{Fahy2012} %Using open source libraries in cross platform games development
+\cite{Nebeling2013} % Informing the Design of New Mobile Development Methods and Tools
+\cite{Sorensen2014} % The 4C Framework: Principles of Interaction in Digital Ecosystems
+\cite{Dong2016} %Understanding the Challenges of Designing and Developing Multi-Device Experiences
 
 % conference papers do not normally have an appendix
 
@@ -772,20 +595,22 @@ more thanks here
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+\bibliography{bib}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
+%\begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
-\end{thebibliography}
+
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+ % 0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+%\end{thebibliography}
 
 
 
