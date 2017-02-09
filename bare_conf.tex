@@ -65,6 +65,13 @@
 % http://www.tug.org/applications/pdftex
 
 
+\let\labelindent\relax
+\usepackage{paralist}
+
+\usepackage{enumitem}
+\newlist{RQ}{enumerate}{1}
+\setlist[RQ]{label=RQ.\arabic*:,leftmargin=3\parindent}
+
 \usepackage[colorinlistoftodos]{todonotes}
 
 
@@ -124,6 +131,7 @@ line 4: Email: name@xyz.com}
 
 
 
+
 % use for special paper notices
 %\IEEEspecialpapernotice{(Invited Paper)}
 
@@ -169,49 +177,65 @@ cross-platform development; software libraries; version control system.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 % no \IEEEPARstart
-\todo[inline]{Continuo achando que essa primeira frase esta estranha. Veja os comentarios em https://goo.gl/PD2Mei}
-Cross-platform programming has been used to develop several libraries, toolkits, frameworks that allow developers writing multiplatform applications even though the developer is not familiarized with technical aspects about the target platform. Each platform can have a unique approach to implement a functionality or communicate with a hardware device. Hence to build a multiplatform application it’s necessary to write platform specific code to handle with the different hardware architecture and implementations of file system, graphic user interface (GUI), audio system, security [ ]. 
 
-Compiled languages require compiling for each platform it supports. Libraries such as Simple DirectMedia Layer (SDL) and Allegro have implementations for multiple platforms and allow developers to code for the library used instead of the target platforms.     
+%\todo[inline]{Este paragrafo deveria estar no inicio.}
+Cross-platform libraries are in demand by developers because of the scenario with many platforms. Moreover, new platforms can start a trend and claim support by popular demand, making developers upgrading the software. 
 
-In this paper we are interested to know some characteristics about cross-platform library projects. Thus we selected two cross-platform libraries to work on and we use the  information available in the repository to answer the following research questions:
+%\todo[inline]{Continuo achando que essa primeira frase esta estranha. Veja os comentarios em https://goo.gl/PD2Mei}
+Cross-platform libraries allow developers writing cross-platform applications even though the developer is not familiarized with technical aspects about the target platform. Each platform can have a unique approach to implement a functionality or communicate with a hardware device. Hence to build a cross-platform software, it’s necessary to write platform-specific code in some situations \cite{bishop2006,backblaze2008}. It's considered a good programing practice to use as much as possible platform-independent code \cite{bishop2006,backblaze2008}. 
 
-\todo[inline]{Pode chamar de RQ1, RQ2 e RQ3, para facilitar referenciar as questoes em outras partes do texto}
+Companies want to make their products available for as many platforms as possible but developing a cross-platform application can be costly and some companies choose to limit the number of platforms in the initial version and port it later to other platforms \cite{Fahy2012}. Porting it later can make it much more expensive as the developer will have to review what have been done first \cite{Fahy2012,bishop2006}. 
 
-\begin{itemize}
+
+Changes in the platform are very dangerous for cross-platform libraries because it can make parts of the system to fail. Analogously,  a hardware change can also affect some parts of the system \cite{bishop2006}. A platform change is critical for cross-platform libraries and cannot be ignored or postpone.   
+
+
+
+
+
+%to handle with the different hardware architecture and implementations of file system, graphic user interface (GUI), audio system, security cite{bishop2006,backblaze2008}.
+
+ 
+
+%Compiled languages require compiling for each platform it supports. Libraries such as Simple DirectMedia Layer (SDL) and Allegro have implementations for multiple platforms and allow developers to code for the library used instead of the target platforms.     
+
+In this paper we are interested to know some characteristics about cross-platform library projects. We selected Allegro to work on and we used the information available in the repository to answer the following research questions:
+
+\begin{RQ}
 % \item  Which platform is more independent in terms of being modified alone during maintenance tasks? \todo[inline]{Which platforms tend to change when there is a change in platform-independente code?}
 \item Do core developers tend to contribute with more platforms than peripheral developers?
 \item Is there a clear separation between mobile and desktop developers?
 \item  Which platforms are more related together considering the set of platforms a developer work with? 
-\end{itemize}
+\end{RQ}
 
-\todo[inline]{Este paragrafo deveria estar no inicio.}
-Cross-platform libraries, toolkits and frameworks are in demand because of the increasing number of hardware devices and Operating Systems (OS). Companies want to make their products available for as many platforms as possible but developing a multiplatform application can be costly. Cross-platform programming is not a very explored area although there is a lot of challenges involving multiplatform applications.   
+
 
 The remainder of this paper is organized as follows: Section X…. 
 
 \section{Background}
 
-To achieve the goal of building a cross-platform application in the scenario of many device types and platforms, developers should consider three fundamental requites \cite{Levin2014}: an application should be consistent, continuous and complementary. Consistent design means that the core functionalities and structure are kept across platforms. Continuous design is when a user can start an activity in one platform and finish it in some other platform. Complementary design is that devices complement one another with a relevant functionality that only a specific device can do.     
+To achieve the goal of building a cross-platform application in the scenario of many device types and platforms, developers should consider three fundamental requites \cite{Levin2014}: an application should be consistent, continuous and complementary. Consistent design means that the core functionalities and structure are kept across platforms. Continuous design is when a user can start an activity in one platform and finish it in some other platform. Complementary design is that devices complement one another with a relevant functionality that only a specific device can do.   
 
-\todo[inline]{Nao entendi de que forma cross-platform aumenta a qualidade do codigo. Essa afirmacao veio de algum trabalho relacionado?}
 
-Building cross-platform raises the overall quality of code and the range of users who can take advantage of the software. A software engineering of Backblaze reported 10 rules for writing cross-platform code in C and C++ \cite{backblaze2008}:
+%\todo[inline]{citation required in "raises overall quality of the code"}
 
-\todo[inline]{Acho que nao deve colocar essa lista aqui, porque (1) voce nao vai explicar tudo, e sem explicacao o leitor nao vai entender o que cada coisa significa e (2) nem tudo eh relevante para seu trabalho.}
+Building cross-platform raises the overall quality of code and the range of users who can take advantage of the software\cite{backblaze2008}. A software engineering of Backblaze reported some rules for writing cross-platform code in C and C++ \cite{backblaze2008}, we selected 4 rules strongly related to our research:
 
+%\todo[inline]{Select only some rules}
 \begin{enumerate}
 \item Simultaneously development - Think about cross-platform from the very beginning of a project.  
-\item XML for GUI - Factor out the GUI into non reusable code and then develop a cross-platform library for the underlying logic.
-\item Use standard C types, not platform-specific types.
-\item Use only built in \#ifdef compiler flags, do not invent your own.
+%\item XML for GUI - Factor out the GUI into non reusable code and then develop a cross-platform library for the underlying logic.
+%\item Use standard C types, not platform-specific types.
+%\item Use only built in \#ifdef compiler flags, do not invent your own.
 \item Develop a simple set of reusable, cross-platform base libraries to hide platform-specific code
-\item Use Unicode, specifically UTF-8, for all APIs.
+%\item Use Unicode, specifically UTF-8, for all APIs.
 \item Don’t use 3rd party application frameworks or runtime environments. 
-\item Build the raw source directly on all platforms.
+%\item Build the raw source directly on all platforms.
 \item Require all programmers to compile on all platforms.
-\item Fire the lazy, incompetent, or bad attitude programmers who can’t follow these rules.
+%\item Fire the lazy, incompetent, or bad attitude programmers who can’t follow these rules.
 \end{enumerate}
+
+Conversely to the rules 2 and 3, companies can take advantage of cross-platform libraries reducing the development time, but some companies reject this option thinking those libraries are not suitable for them \cite{Fahy2012}.
 
 Avaya's projects use fork to outsource development team. As developers generally support a few number of platforms, Avaya's development team  was divided in pure desktop and Windows team and the purely mobile teams. Consequently, it hinders fixing bugs  in all supported platforms and create redundant development effort in some cases \cite{Duc2014}.  
 
@@ -222,10 +246,9 @@ Avaya's projects use fork to outsource development team. As developers generally
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
+\label{methodology}
 
-\todo[inline]{Use "Table I shows..." (T maiusculo)}
-
-In order that we could establish relations among platforms and know better the developer team profile of cross-platform library projects, we selected Allegro library to conduct the study. The table \ref{allegrogeneral} shows a summary of Allegro’s general characteristics.  
+In order that we could establish relations among platforms and know better the developer team profile of cross-platform library projects, we selected Allegro library to conduct the study. The Table \ref{allegrogeneral} shows a summary of Allegro’s general characteristics.  
 
 \begin{table}[h]
 %% increase table row spacing, adjust to taste
@@ -249,7 +272,10 @@ Platforms & Windows, Linux, Mac OS X, iPhone, Android \\
 \end{tabular}
 \end{table}
 
-We extracted the commits related to modifications from Allegro's repository. The table \ref{allegroinfo} shows the release selected, some size metrics, the analysis period  and the quantity of commits extracted from Allegro's repository.  
+We extracted the commits related to modifications from Allegro's repository. The Table \ref{allegroinfo} shows the release selected, some size metrics, the analysis period  and the quantity of commits extracted from Allegro's repository.  
+
+
+%\todo[inline]{Add number of developers}
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -268,6 +294,8 @@ Packages & 13\\
 \hline
 Functions & 2.358\\
 \hline
+Developers & 21 \\
+\hline
 Commits & 1.143  \\
 \hline
 Period & 01/12/2011 - 01/12/2016   \\
@@ -275,11 +303,18 @@ Period & 01/12/2011 - 01/12/2016   \\
 \end{tabular}
 \end{table}
 
-\todo[inline]{Table 2, adicionar: number of developers}
-
 Allegro's first release supported Windows, Mac OSX, and Linux. Then in August 2009 they started supporting Iphone and in December 2011 they started supporting Android. As our intention was to study all five platforms, we extracted the commits from 1st December 2011 until 1st December 2016, totalizing 1143 commits.  
 
-For the data mining and quantitative analysis we used the R, programming language and software environment for statistical computing and graphics. The study was designed as a three-part method, as illustrated in figure \ref{metodologia}: 
+Despite Allegro supports officially five platforms, as shown in Table \ref{allegrogeneral}, we considered Unix as a sixth platform as Linux is based on Unix and we also discovered that many other packages are logically coupled with Unix package. Figure \ref{diagrama} shows a UML diagram of logical coupling among packages of Allegro. 
+
+\begin{figure}[h]
+\centering
+\textbf{}\includegraphics[width=2.5in]{diagrama}
+\caption{UML diagram of logical coupling among packages}
+\label{diagrama}
+\end{figure} 
+
+For the data mining and quantitative analysis we used the R, programming language and software environment for statistical computing and graphics. The study was designed as a three-part method, as illustrated in Figure \ref{metodologia}: 
 
 \begin{itemize}
 \item Commit log extraction: Allegro uses Git, an open version control repository (VCS), and its commit log was freely obtained from the repository.
@@ -294,18 +329,11 @@ For the data mining and quantitative analysis we used the R, programming languag
 \label{metodologia}
 \end{figure}
 
-To identify the platforms a developer works with, we listed all platform-specific code the developer has touched in the commits and it was considered that a developer supports a certain platform if the developer has made at least one modification in the platform-specific code related to this platform.
+Allegro's  platform-specific code are packed according to the platform, thus to identify the platforms a developer works with, we listed all platform-specific code the developer has touched in the commits and it was considered that a developer supports a certain platform if the developer has made at least one modification in the platform-specific code related to this platform. 
 
-\todo[inline]{Faltou explicar como voce sabe qual plataforma o commit esta tocando. Eh pela estrutura de diretorios.}
 
-Despite Allegro supports officially five platforms, as shown in table \ref{allegrogeneral}, we considered Unix as a sixth platform as Linux is based on Unix and we also discovered that many other packages are logically coupled with Unix package. Figure \ref{diagrama} shows a UML diagram of logical coupling among packages of Allegro. 
 
-\begin{figure}[h]
-\centering
-\textbf{}\includegraphics[width=2.5in]{diagrama}
-\caption{UML diagram of logical coupling among packages}
-\label{diagrama}
-\end{figure} 
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -314,7 +342,7 @@ Despite Allegro supports officially five platforms, as shown in table \ref{alleg
 
 In order to know if core developers tend to contribute with more platforms than peripheral developers, we divided the developers in core and peripheral and counted the number of platforms each developer works with. 
 
-The division was made slicing the developer team by classifying the top 20\% in the core group and the remaining in the peripheral group \cite{Robles2009}. Using this approach, the core group was responsible for 88,4\% of the total number of commits.
+The division was made slicing the developer team by classifying the top 20\% in the core group and the remaining in the peripheral group \cite{Robles2009}. Using this approach, the core group was responsible for 97,4\% of the total number of commits.
 
  
 
@@ -325,10 +353,10 @@ The division was made slicing the developer team by classifying the top 20\% in 
 \subsubsection{Analysis: Is there a clear separation between mobile and desktop developers?}
 \label{met_analysis2}
 
-\todo[inline]{Essa explicacao abaixo nao ficou clara. Para cada desenvolvedor, voce contou os commits para plataformas mobile e para plataformas desktop. Do jeito que esta explicado, parece que voce pegou todos os commits e dividiu em mobile e desktop, sem considerar a divisao por desenvolvedor.}
+%\todo[inline]{Essa explicacao abaixo nao ficou clara. Para cada desenvolvedor, voce contou os commits para plataformas mobile e para plataformas desktop. Do jeito que esta explicado, parece que voce pegou todos os commits e dividiu em mobile e desktop, sem considerar a divisao por desenvolvedor.}
 
 
-We divided the commits according to the device type: mobile and desktop. Therefore all the analysis were made considering Android and Iphone in mobile group and Linux, Unix, Windows and Mac OSX in desktop group. 
+We listed all developers and we verified in the commit log the platforms the developers support. Then we grouped the platforms according to the device type: mobile and desktop. Therefore all the analysis were made considering Android and Iphone in mobile group and Linux, Unix, Windows and Mac OSX in desktop group.  
 
 
 
@@ -336,68 +364,92 @@ We divided the commits according to the device type: mobile and desktop. Therefo
 \subsubsection{Analysis: Which platforms are more related together considering the set of platforms a developer work with? }
 \label{met_analysis3}
 
-To know which platforms are more related together considering the set of platforms a developer work with, we organized the data by developer and listed all platforms the developer works with and then we applied the Apriori algorithm for mining frequent set of platforms.
+To know which platforms are more related together considering the set of platforms a developer work with, we organized the data by developer and listed all platforms the developer works with and then we applied the Apriori algorithm for mining frequent set of platforms.The Apriori algorithm is a widely used association analysis algorithm. 
+
+The association analysis is useful for finding interesting relationships in data  sets. The relations can be represented as association rules or set of frequent items \cite{Tan2005}. Considering the Table \ref{examplerule} as a example, the rule suggests that the sale of diapers is strongly related to the sale of beer because many people who buy diapers also buy beer \cite{Tan2005}.   
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.3}
+\caption{Classic example of market basket transaction}
+\label{examplerule}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+ Transaction & Items \\
+\hline
+1&		\{Bread, Milk\}\\
+2&		\{Bread, Diapers, Beer, Eggs\}\\
+3&		\{Milk, Diapers, Beer, Cola\}\\
+4&		\{Bread, Milk, Diapers, Beer\}\\
+5&		\{Bread, Milk, Diapers, Cola\}\\
+\hline
+\end{tabular}
+\end{table}
 
 
+%\todo[inline]{Esse principio tem a ver com o funcionamento do algoritmo, que nao eh tao relevante para este paper.}
 
-The Apriori algorithm is a widely used association rule algorithm and its principle is that "if an itemset is frequent, then all of its subsets must also be frequent".
-\todo[inline]{Esse principio tem a ver com o funcionamento do algoritmo, que nao eh tao relevante para este paper.}
-Using Apriori we intended to verify how many times Windows and Mac OSX packages were modified in the same commit, for example. 
-\todo[inline]{O Apriori faz um pouco mais que isso, pois ele enxerga relacionamentos assimetricos.}
+Using Apriori we intended to verify if there is any association among the set of platforms a developer support. For example, we wanted to know if developers who support Android also support Iphone.
+
+%\todo[inline]{O Apriori faz um pouco mais que isso, pois ele enxerga relacionamentos assimetricos.}
 
 Two important parameters of Apriori are support and confidence. Support represents how often a rule occurs in a given dataset, while confidence determines how frequently two subset appear together in a transaction. We used a trial and error method to find the most suitable values for support and confidence and we determined support=0,3 and confidence=0,8.     
 
-\todo[inline]{Quem nao conhece o Apriori nao vai entender. Precisa mostrar exemplos de rules.}
+%\todo[inline]{Quem nao conhece o Apriori nao vai entender. Precisa mostrar exemplos de rules.}
 
-\todo[inline]{``Trial and error method'' nao soa muito cientifico...}
-
+\todo[inline]{``Trial and error method'' nao soa muito cientifico... }
+\todo[inline]{We used an empirical method to find the most suitable values...}
+\todo[inline]{We tested several support and confidence values for the data set to find the most suitable values...
+}
+\todo[inline]{We tested several support and confidence values for the data set to filter weak rules...
+}
+the searching space for strong rules is reduced.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 In this section we present the results obtained in the case study about characterization of the development of cross-platform libraries. 
 
-As a preprocessing step, with the aim of verifying the modularity and communication among packages of Allegro, we built a UML diagram of logical coupling among packages, shown in figure \ref{diagrama}, and we counted how many packages were modified in each commit. The table  \ref{packagegeneral} presents amount of packages modified in each commit. 
+%As a preprocessing step, with the aim of verifying the modularity and communication among packages of Allegro, we built a UML diagram of logical coupling among packages, shown in Figure \ref{diagrama}, and we counted how many packages were modified in each commit. The table  \ref{packagegeneral} presents amount of packages modified in each commit. 
 
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Number of packages modified in a commit}
-\label{packagegeneral}
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
- Package & Commit & \%\\
-\hline
-1&		964&	84,3\\
-2&		98&		8,6\\
-3&		46& 	4,9\\
-4&		14&		1,2\\
-5&		9&		0,8\\
-6&		7&		0,6\\
-7&		3&		0,3\\
-8&		2&		0,2\\
+%\begin{table}[h]
+%\renewcommand{\arraystretch}{1.3}
+%\caption{Number of packages modified in a commit}
+%\label{packagegeneral}
+%\centering
+%\begin{tabular}{|c|c|c|}
+%\hline
+% Package & Commit & \%\\
+%\hline
+%1&		964&	84,3\\
+%2&		98&		8,6\\
+%3&		46& 	4,9\\
+%4&		14&		1,2\\
+%5&		9&		0,8\\
+%6&		7&		0,6\\
+%7&		3&		0,3\\
+%8&		2&		0,2\\
 
-\hline
-\end{tabular}
-\end{table}
+%\hline
+%\end{tabular}
+%\end{table}
 
-We found that 84,3\% of commits touches only one package, it suggests that Allegro is a well modularized system. 
+%We found that 84,3\% of commits touches only one package, it suggests that Allegro is a well modularized system. 
 
-The diagram of logical coupling shows some unexpected relationship among packages:
+%The diagram of logical coupling shows some unexpected relationship among packages:
 
-\begin{itemize}
-\item Mac OSX package doesn't communicate with any other package.
-\item  Android package is accessed by Allegro package.
-\end{itemize}
+%\begin{itemize}
+%\item Mac OSX package doesn't communicate with any other package.
+%\item  Android package is accessed by Allegro package.
+%\end{itemize}
 
-\todo[inline]{A meu ver essa analise de pacotes esta deslocada. Voce esta respondendo a uma pergunta que voce nao fez na introducao e metodologia. Alem disso, por que reportar resultados de pacotes se voce esta estudando plataformas? Voce pode reportar essa analise com plataformas, mas nesse caso deveria colocar isso como questao de pesquisa.}
+%\todo[inline]{A meu ver essa analise de pacotes esta deslocada. Voce esta respondendo a uma pergunta que voce nao fez na introducao e metodologia. Alem disso, por que reportar resultados de pacotes se voce esta estudando plataformas? Voce pode reportar essa analise com plataformas, mas nesse caso deveria colocar isso como questao de pesquisa.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Results: Do core developers tend to contribute with more platforms than peripheral developers?}
 
-The figure \ref{DeveloperSpecialization} shows how many platforms a developer supports, in general. In figure \ref{DeveloperSpecialization} we can see that see that about 50\% support more than one platform. 
+The Figure \ref{DeveloperSpecialization} shows how many platforms a developer supports, in general. In Figure \ref{DeveloperSpecialization} we can see that see that about 50\% support more than one platform. 
 
-\todo[inline]{Na figura 3 nao da pra ver essa informacao sobre 50\% diretamente, a nao ser que o leitor some todas as contagens do histograma.}
+%\todo[inline]{Na figura 3 nao da pra ver essa informacao sobre 50\% diretamente, a nao ser que o leitor some todas as contagens do histograma.}
 
 \begin{figure}[h]
 \centering
@@ -406,31 +458,31 @@ The figure \ref{DeveloperSpecialization} shows how many platforms a developer su
 \label{DeveloperSpecialization}
 \end{figure}
 
-Dividing the developers in core and peripheral team, we set the core team with 4 developers and the peripheral team with 17 developers. The core team was responsible for 97,4\% of the total number of commits. This information can be seen in table \ref{devgrouping}.  
+Dividing the developers in core and peripheral team, we set the core team with 4 developers and the peripheral team with 17 developers. The core team was responsible for 97,4\% of the total number of commits. 
 
-\todo[inline]{La em cima voce falou em 88,4\%.}
+%\todo[inline]{La em cima voce falou em 88,4\%.}
 \todo[inline]{Use . como separador decimal.}
-\todo[inline]{Nao precisa de uma tabela com a mesma informacao deste paragrafo, sendo que essa informacao nao eh o seu resultado, eh apenas uma contextualizacao.}
+%\todo[inline]{Nao precisa de uma tabela com a mesma informacao deste paragrafo, sendo que essa informacao nao eh o seu resultado, eh apenas uma contextualizacao.}
 
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Developer grouping}
-\label{devgrouping}
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-  & Team size   & Commits (\%) \\
-\hline
-Core & 4& 97,4 \\
-\hline
-Peripheral & 17 & 2,6\\
-\hline
-\end{tabular}
-\end{table} 
+%\begin{table}[h]
+%\renewcommand{\arraystretch}{1.3}
+%\caption{Developer grouping}
+%\label{devgrouping}
+%\centering
+%\begin{tabular}{|c|c|c|}
+%\hline
+%  & Team size   & Commits (\%) \\
+%\hline
+%Core & 4& 97,4 \\
+%\hline
+%Peripheral & 17 & 2,6\\
+%\hline
+%\end{tabular}
+%\end{table} 
 
-Our investigation shows that all core developers work with all six platforms and that peripheral developers tend to be specialized in a single platform, as 47,1\% of them work with one platform only. We also found that 11,47\% of peripheral developers support just the platform-independent code. The table \ref{plat} presents all information about the number of platform core and peripheral developer support.    
+Our investigation shows that all core developers work with all six platforms and that peripheral developers tend to be specialized in a single platform, as 47,1\% of them work with one platform only. We also found that 11,47\% of peripheral developers support just the platform-independent code. The Table \ref{plat} presents all information about the number of platform core and peripheral developer support.    
 
-\todo[inline]{Eh a primeira vez que voce fala sobre platform-independent code; isso nao foi explicado antes.}
+%\todo[inline]{Eh a primeira vez que voce fala sobre platform-independent code; isso nao foi explicado antes.}
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -439,7 +491,7 @@ Our investigation shows that all core developers work with all six platforms and
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Number of platform & Core (\%) & Peripheral(\%)\\
+Number of platform & Core (\%) & Peripheral (\%)\\
 \hline
 0 & 	- & 	11,47 \\
 \hline
@@ -466,26 +518,31 @@ Number of platform & Core (\%) & Peripheral(\%)\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Results: Is there a clear separation between mobile and desktop developers?}
 
-The table \ref{devicetype} shows the device type specialization of core and peripheral developers. The results show that there is no separation between mobile and desktop developers in team core team, as all of them support both device types. But in peripheral team, we can see a small segregation although 41,18\% of the team support both platforms.       
+%\todo[inline]{Change the analysis... consider all developers first}
+%As Allegro support different device types, we investigated in RQ.2 if there was a separation in the developer team according to the device type. The results considering all developers groups together show that 23,81\% of the developers support desktop devices only, 14,29\% support mobile devices only and 52,38\% support both device types. As about half of the developers support both device types, we consider that there is no clear separation between mobile and desktop developers. Moreover, all core developers support both device types, that means that none of them are responsible for the code of a device type.
+The Table \ref{devicetype} shows the device type specialization of the  developers. We measured the platform specialization for all developers and also for core and peripheral developer groups. Considering all developers, the results show that 52,38\%  of the developers support both device types, 23,81\% of the developers support desktop devices only and 14,29\% support mobile devices only.
 
-\todo[inline]{O caption da Tabela VI deveria permitir ao leitor entender a tabela sem ler o texto fora da tabela. Em particular, deveria explicar o que sao as porcentagens.}
+In the core team, all developers support both device types. But in peripheral team, just 41,18\% of the developers support desktop and mobile platforms.       
+
+%\todo[inline]{O caption da Tabela VI deveria permitir ao leitor entender a tabela sem ler o texto fora da tabela. Em particular, deveria explicar o que sao as porcentagens.}
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
-\caption{Device type specialization}
+\caption{Device type specialization of developers}
 \label{devicetype}
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline
- Device type & Core (\%) & Peripheral (\%) \\
+ Device type & Core   & Peripheral &All developers \\
+  &  (\%)   &  (\%) &  (\%)\\
 \hline
-None & 			- & 		11,8   \\
+Independent code only & 		- & 		11,8  & 	9,52\\
 \hline
-Desktop & 		- & 		29,4  \\
+Desktop only & 					- & 		29,4  & 	23,81\\
 \hline
-Mobile & 		- & 		17,4 \\
+Mobile only & 					- & 		17,4  & 	14,29\\
 \hline
-Desktop and Mobile & 100 & 41,18  \\
+Desktop and Mobile & 			100 & 		41,18 & 	52,38	\\
 \hline
 
 \end{tabular}
@@ -494,32 +551,32 @@ Desktop and Mobile & 100 & 41,18  \\
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Results: Which platforms are more related together considering the set of platforms a developer work with? }
 
-We verified how many packages are touched in a commit for each platform, the results are shown in figure \ref{packagesbyplatform}. The figure \ref{packagesbyplatform} can be interpreted as: when a platform package is touched in a maintenance task, how many packages are also modified? Except Unix that have the median equals to two, all other five platforms have the minimum and median equals to 1, with special attention to Mac OSX that also have maximum equal to 1.  
+%We verified how many packages are touched in a commit for each platform, the results are shown in Figure \ref{packagesbyplatform}. The Figure \ref{packagesbyplatform} can be interpreted as: when a platform package is touched in a maintenance task, how many packages are also modified? Except Unix that have the median equals to two, all other five platforms have the minimum and median equals to 1, with special attention to Mac OSX that also have third quartile equal to 1.  
 
-\todo[inline]{1 nao eh o maximo do Mac OS X, eh o seu terceiro quartil.}
-\todo[inline]{Mais uma vez aparece o numero de pacotes em uma analise, resquicio de analises anteriores, mas que nao cabe na proposta deste artigo. Se fosse plataforma vs plataforma, melhor.}
+%\todo[inline]{1 nao eh o maximo do Mac OS X, eh o seu terceiro quartil.}
+%\todo[inline]{Mais uma vez aparece o numero de pacotes em uma analise, resquicio de analises anteriores, mas que nao cabe na proposta deste artigo. Se fosse plataforma vs plataforma, melhor.}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=3.0
-in]{packagesbyplatform}
-\caption{Number of packages touched in a commit for each platform}
-\label{packagesbyplatform}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=3.0in]{packagesbyplatform}
+%\caption{Number of packages touched in a commit for each platform}
+%\label{packagesbyplatform}
+%\end{figure}
 
-The Apriori association rule results can be seen in table \ref{assocrule}. The most frequent rule found was the rule 1, that says that when a developer works with Iphone, the developer also works with Windows with a confidence of 0,89. The rule 1 was true for 8 out of 21 transactions.
-The rule 2, 3 and 4 was found in 7 out of 21  transactions with a confidence of 1,00. The rule 5 was found in 7 out of 21 transactions with a confidence of 0,88. 
+The Apriori association rule results can be seen in Table \ref{assocrule}. The data set used in the association analysis was the set of platform each developer works with, and each set of platform is referred as a transaction. We analyzed 21 transactions with Apriori. 
 
-\todo[inline]{Transactions sao um termo de association rule? Melhor falar de commits.}
+All five association rules found relate desktop with mobile platforms. The association rule 1 shows that even though Iphone and Windows platform are from different device types and their are not logically coupled, as we can see in Figure \ref{allegroinfo}, developers who work with Iphone also work with Windows with absolute support of 8 and confidence of 0,89. 
 
-\todo[inline]{Quando voce diz out of 21, voce nao quer dizer que o total sao 21 commits, certo?}
+Similar cases happened to the other rules. The rule 2, 3 and 4 was found in 7 out of 21  transactions with a confidence of 1,00.  The rule 5 was found in 7 out of 21 transactions with a confidence of 0,88. 
 
-\todo[inline]{Vale a pena comentar que essa associacao entre iPhone e Windows eh contra-intuitiva.}
+%\todo[inline]{Transactions sao um termo de association rule? Melhor falar de commits.}
+
+%\todo[inline]{Quando voce diz out of 21, voce nao quer dizer que o total sao 21 commits, certo?}
+
+
 
 
 \begin{table}[h]
@@ -529,21 +586,23 @@ The rule 2, 3 and 4 was found in 7 out of 21  transactions with a confidence of 
 \centering
 \begin{tabular}{|c|c c c|c|c|}
 \hline
- Rule	&LHS & &RHS	& Support & Confidence \\
+ Rule	&LHS & &RHS	& Supp. & Conf. \\
 \hline
-1&	\{Iphone\} 			&$\Rightarrow$	& 	\{Windows\} 	& 	0,3809524	&  	0,89	\\
+1&	\{Iphone\} 			&$\Rightarrow$	& 	\{Windows\} & 	0,38	&  	0,89	\\
 \hline
-2&	\{Linux\} 			& $\Rightarrow$ & 	\{android\} 	& 	0,3333333	&  	1,00 	\\
+2&	\{Linux\} 			& $\Rightarrow$ & 	\{android\} & 	0,33	&  	1,00 	\\
 \hline
-3&	\{Iphone,Macosx\}	&$\Rightarrow$	& 	\{Windows\} 	& 	0,3333333	& 	1,00	\\
+3&	\{Iphone,Macosx\}	&$\Rightarrow$	& 	\{Windows\} & 	0,33	& 	1,00	\\
 \hline
-4&	\{Windows,Macosx\} &$\Rightarrow$&  	\{Iphone\} 	& 	0,3333333	& 	1,00	\\
+4&	\{Windows,Macosx\} &$\Rightarrow$&  	\{Iphone\} 	& 	0,33	& 	1,00	\\
 \hline
-5&	\{Windows,Iphone\} &$\Rightarrow$& 		\{Macosx\} 	& 	0,3333333	&  	0,88	\\
+5&	\{Windows,Iphone\} &$\Rightarrow$& 		\{Macosx\} 	& 	0,33	&  	0,88	\\
 \hline
 \end{tabular}
 \end{table} 
 
+%\todo[inline]{Vale a pena comentar que essa associacao entre iPhone e Windows eh contra-intuitiva.}
+2222
 
 
 
@@ -552,22 +611,68 @@ The rule 2, 3 and 4 was found in 7 out of 21  transactions with a confidence of 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
-The conclusion goes here. this is more of the conclusion
+\label{conclusion}
 
-\todo[inline]{Acho que vale a pena mencionar brevemente as ameacas aa validade aqui na conclusao.}
+The development of cross-platform libraries can alleviate the developer work in building cross-platform applications and promotes software reuse. Details of implementation of cross-platform libraries are unknown and there is no worldwide method for developing for multiple platforms. %Details of implementation of cross-platform libraries are not well defined and many developers use such libraries as a black box.  
+
+%Do core developers tend to contribute with more platforms than peripheral developers?
+Allegro's core developers support all six platforms analyzed, while only 40\% of the peripheral developers support more than one platform. Therefore, answering the RQ.1, we conclude that the core developers support more platforms than peripheral developers. 
+
+%Is there a clear separation between mobile and desktop developers?
+As Allegro support different device types, we investigated in RQ.2 if there was a separation in the developer team according to the device type. The results considering all developers groups together show that 23,81\% of the developers support desktop devices only, 14,29\% support mobile devices only and 52,38\% support both device types. As about half of the developers support both device types, we consider that there is no clear separation between mobile and desktop developers. Moreover, all core developers support both device types, that means that none of them are responsible for the code of a device type.  
+
+%Which platforms are more related together considering the set of platforms a developer work with? 
+In the association analysis we performed to identify relationships between platforms a developer work with, we found 5 rules relating platforms of different device types. The rule 1 happened to be true in 38\% of the transactions and rule 2, 3, 4 and 5 was true in 33\% of the transactions.  Actually this fact was not expected but despite of that we found strong relationships among some platforms, listed in Table \ref{assocrule}. 
+
+Still there is a lot to investigate about cross-platform libraries. We plan to replicate this study using other cross-platform libraries and we also want to expand on this research by investigating other subjects:
+\begin{itemize}
+ 
+\item Platform-specific and independent code: verify if developers mix the platform-specific and independent code in the same file checking conditional compilation flags.
+
+\item Modularity: use co-changes to assess the modularity of the system. 
+
+\item Platform support: chronologically, study the gap between the appearance of a platform and its support by a cross-platform library.
+
+\end{itemize}
+
+%\todo[inline]{Acho que vale a pena mencionar brevemente as ameacas aa validade aqui na conclusao.}
+
+Some threats to validity were identified in this research and we present them  following the usual category threats: internal, external, construct and conclusion validity.
+
+\todo[inline]{History: the circumstances are not the same on both occasions}
+\todo[inline]{Maturation: subjects react differently as time passes}
+\begin{enumerate}
+
+\item Internal validity: Allegro started supporting Windows, Mac OSX and Linux from the very beginning of the project, Iphone in October 2009 and Android in December 2011. Hence, the platform-specific codes have different maturities and may demand different maintenance tasks. Another risk is that we did not consider the developer experience time in the analysis.  
+Interaction  of  selection  and  treatment.
+
+\todo[inline]{Interaction  of  selection  and  treatment}
+\item External validity: the results obtained with Allegro cannot be generalized to other cross-platform libraries. However, this study can be replied using other cross-platform libraries.
+
+\todo[inline]{Inadequate preoperational explication of constructs or hypothesis guessing}
+\item Construct validity: the lack of documentation of Allegro about the development process and how platform packages communicate can put at risk the study as we relied on metric measures to understand the package coupling and the developer team were divided in core and peripheral following recommendations from other researchers. 
+
+\todo[inline]{Reliability of measures}
+\item Conclusion validity: for determining the set of platforms a developer support, we considered that if a developer touched a platform package in a commit, the developer support this platform. But we did not verified  what was the modification and the developer could have only added a comment in a file, for example. Another threat is that the developers can support more platforms than the ones we considered because Allegro support other platforms unofficially. 
+
+\end{enumerate}
+
+
 
 
 %\cite{Robles2009} % Core peripheral developer
 %\cite{backblaze2008} % ten rules
 %\cite{Levin2014} %Book
 %\cite{Duc2014} ¨% Forking and Coordination
+%\cite{Tan2005}% Introduction to data mining book
+%\cite{bishop2006} % software that lasts
+%\cite{Fahy2012} %Using open source libraries in cross platform games development
 
-\cite{bishop2006} % software that lasts
-\cite{Wojtczyk2008} % A Cross Platform Development Workflow for C/C++ Applications
-\cite{Fahy2012} %Using open source libraries in cross platform games development
+
 \cite{Nebeling2013} % Informing the Design of New Mobile Development Methods and Tools
 \cite{Sorensen2014} % The 4C Framework: Principles of Interaction in Digital Ecosystems
 \cite{Dong2016} %Understanding the Challenges of Designing and Developing Multi-Device Experiences
+\cite{Catalyst} %Bermuda triangle
 
 % conference papers do not normally have an appendix
 
